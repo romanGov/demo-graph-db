@@ -1,0 +1,55 @@
+HELP.md
+.gradle
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+**/http-client.private.env.json
+/log
+
+### IntelliJ IDEA ###
+/.idea/*
+# Keep the code styles.
+!/.idea/codeStyles
+/.idea/codeStyles/*
+!/.idea/codeStyles/Project.xml
+!/.idea/codeStyles/codeStyleConfig.xml
+# Keep the inspection levels
+!/.idea/inspectionProfiles
+/.idea/inspectionProfiles/*
+!/.idea/inspectionProfiles/Project_Default.xml
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+**/.DS_Store
+**/.aws-sam
+**/cdk.out
+cdk.context.json
+
+.run
+.dev
+
+**/local.json
+
+### NODE ###
+node_modules
+yarn.lock
+#**/node/*.js
+#**/node/*.js.*
+/lib/*
+/.idea/inspectionProfiles/Project_Default.xml
+
