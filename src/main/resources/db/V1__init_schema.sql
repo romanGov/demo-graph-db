@@ -1,6 +1,7 @@
 CREATE SCHEMA if not exists graph;
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 create sequence person_sequence;
 create sequence business_sequence;
 

@@ -25,5 +25,9 @@ $$ LANGUAGE plpgsql;
 
 select generate_works_in(10);
 
+select generate_persons(100);
+select generate_businesses(100);
+select generate_works_in(100);
+
 
 

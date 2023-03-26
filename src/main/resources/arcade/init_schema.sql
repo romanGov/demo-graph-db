@@ -1,9 +1,0 @@
-create vertex type Person if not exists;
-create property Person.first_name if not exists string;
-create property Person.email if not exists string;
-create property Person.id if not exists integer;
-create vertex type Business if not exists;
-create property Business.business_name if not exists string;
-create property Business.email if not exists string;
-create property Business.id if not exists integer;
-create edge type worksIn if not exists;

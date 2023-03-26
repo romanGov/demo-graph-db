@@ -23,6 +23,8 @@ dependencies {
     implementation("com.arcadedb:arcadedb-engine:$arcadeDbVersion")
     implementation("com.arcadedb:arcadedb-network:$arcadeDbVersion")
     implementation("org.postgresql:postgresql:$postgresDriverVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+
     testImplementation("org.testcontainers:testcontainers:$testContainersVersion")
     testImplementation(kotlin("test"))
 }

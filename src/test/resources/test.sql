@@ -1,1 +1,0 @@
-CREATE EDGE worksIn FROM (SELECT FROM Business order by business_name limit 1 offset 0}) TO (SELECT FROM Person order by first_name limit 1);
