@@ -37,7 +37,7 @@ dependencies {
     val arcadeDbVersion: String by project
     val testContainersVersion: String by project
     val postgresDriverVersion: String by project
-  
+
     //database
     implementation("org.flywaydb:flyway-core:9.3.0")
     implementation("com.arcadedb:arcadedb-engine:$arcadeDbVersion")
@@ -52,9 +52,13 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     //kotlin
     implementation(kotlin("stdlib"))
+    implementation("javax.xml.bind:jaxb-api:2.3.1")
+    implementation("com.fasterxml.jackson.module:jackson-module-paranamer")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    // Swagger
+    implementation("org.springdoc:springdoc-openapi-ui:1.6.9")
 
     //test
     testImplementation("org.testcontainers:testcontainers:$testContainersVersion")
