@@ -51,7 +51,7 @@ echo "=========================="
 echo "launch gradle"
 echo "----------------"
 
-./gradlew clean build
+./gradlew clean bootJar
 
 ./gradlew flywayMigrate
 

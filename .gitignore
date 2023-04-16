@@ -6,6 +6,7 @@ HELP.md
 !**/src/test/**/build/
 **/http-client.private.env.json
 /log
+/demo-rabbit/log
 
 ### IntelliJ IDEA ###
 /.idea/*
@@ -52,4 +53,5 @@ yarn.lock
 #**/node/*.js.*
 /lib/*
 /.idea/inspectionProfiles/Project_Default.xml
+/demo-rabbit/src/main/resources/csv
 
