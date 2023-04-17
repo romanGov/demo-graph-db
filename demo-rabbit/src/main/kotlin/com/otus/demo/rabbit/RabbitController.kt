@@ -12,4 +12,12 @@ class RabbitController(
     fun sendQueue(@RequestBody hashMap: HashMap<String,Any>){
         rabbitSender.sendQueue(hashMap.toString())
     }
+    @PostMapping("send-fanout")
+    fun sendFanout(@RequestBody hashMap: HashMap<String,Any>){
+        rabbitSender.sendFanout(hashMap.toString())
+    }
+    @PostMapping("send-rpc")
+    fun sendRpc(@RequestBody hashMap: HashMap<String,Any>): String {
+        return rabbitSender.sendRpc(hashMap.toString())
+    }
 }
