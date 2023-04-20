@@ -48,7 +48,6 @@ echo "----------------"
 
 ./gradlew clean bootJar
 
-./gradlew flywayMigrate
 
 echo "=========================="
 echo "local env was created"

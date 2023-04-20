@@ -7,7 +7,6 @@ plugins {
     kotlin("jvm")
     kotlin("plugin.spring") version "1.5.21"
     id("nu.studer.jooq") version "6.0.1"
-    id("org.flywaydb.flyway") version "9.3.0"
 }
 java.sourceCompatibility = JavaVersion.VERSION_11
 group = "com.otus"
@@ -39,7 +38,6 @@ dependencies {
     val postgresDriverVersion: String by project
 
     //database
-    implementation("org.flywaydb:flyway-core:9.3.0")
     implementation("com.arcadedb:arcadedb-engine:$arcadeDbVersion")
     implementation("com.arcadedb:arcadedb-network:$arcadeDbVersion")
     implementation("org.postgresql:postgresql:$postgresDriverVersion")
@@ -70,15 +68,6 @@ val postgresUrl: String by project
 val postgresUser: String by project
 val postgresPassword: String by project
 
-flyway {
-    url = postgresUrl as String
-    user = postgresUser as String
-    password = postgresPassword as String
-    baselineOnMigrate = true
-    createSchemas = true
-    locations = arrayOf("filesystem:src/main/resources/db")
-    outOfOrder = false
-}
 
 tasks.test {
     useJUnitPlatform()
