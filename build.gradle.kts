@@ -1,7 +1,7 @@
 group = "com.otus"
 version = "1.0-SNAPSHOT"
 plugins {
-    kotlin("jvm") version  "1.8.20"
+    kotlin("jvm")
 }
 
 subprojects {

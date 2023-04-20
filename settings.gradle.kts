@@ -2,7 +2,7 @@ rootProject.name = "demo-graph-db"
 
 pluginManagement {
     plugins {
-        kotlin("jvm") version  "1.8.20"
+        kotlin("jvm") version "1.5.21"
     }
     repositories {
         mavenCentral()
@@ -11,6 +11,18 @@ pluginManagement {
         maven { url = uri("https://repo.spring.io/milestone") }
         maven { url = uri("https://repo.spring.io/snapshot") }
         gradlePluginPortal()
+    }
+}
+buildscript {
+    val kotlinVersion: String by settings
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    dependencies {
+
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 }
 include("demo-rabbit")
