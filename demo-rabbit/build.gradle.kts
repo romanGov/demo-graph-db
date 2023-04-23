@@ -2,11 +2,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
-    id("org.springframework.boot") version "2.6.7"
-    id("io.spring.dependency-management") version "1.1.0"
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
     kotlin("jvm")
-    kotlin("plugin.spring") version "1.5.21"
-    id("nu.studer.jooq") version "6.0.1"
+    kotlin("plugin.spring")
 }
 java.sourceCompatibility = JavaVersion.VERSION_11
 group = "com.otus"
@@ -41,15 +40,13 @@ dependencies {
     implementation("com.arcadedb:arcadedb-engine:$arcadeDbVersion")
     implementation("com.arcadedb:arcadedb-network:$arcadeDbVersion")
     implementation("org.postgresql:postgresql:$postgresDriverVersion")
-    jooqGenerator("org.postgresql:postgresql:$postgresDriverVersion")
     //spring
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-amqp")
-    implementation("org.springframework.boot:spring-boot-starter-jooq")
     implementation("org.springframework.boot:spring-boot-starter-web")
     //kotlin
-    implementation(kotlin("stdlib"))
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8") // for spring-boot app
     implementation("javax.xml.bind:jaxb-api:2.3.1")
     implementation("com.fasterxml.jackson.module:jackson-module-paranamer")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")

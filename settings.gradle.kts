@@ -2,7 +2,13 @@ rootProject.name = "demo-graph-db"
 
 pluginManagement {
     plugins {
-        kotlin("jvm") version "1.5.21"
+        val kotlinVersion: String by settings
+        val springframeworkBootVersion: String by settings
+        val springDependencyManagementVersion: String by settings
+        kotlin("jvm") version kotlinVersion apply false
+        kotlin("plugin.spring") version kotlinVersion apply false
+        id("org.springframework.boot") version springframeworkBootVersion apply false
+        id("io.spring.dependency-management") version springDependencyManagementVersion apply false
     }
     repositories {
         mavenCentral()

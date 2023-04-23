@@ -11,7 +11,8 @@ subprojects {
     repositories {
         mavenCentral()
         mavenLocal()
-
+        google()
+        maven { url = uri("https://jitpack.io") }
         maven { url = uri("https://repo1.maven.org/maven2") }
         maven { url = uri("https://repo.spring.io/milestone") }
         maven { url = uri("https://repo.spring.io/snapshot") }
