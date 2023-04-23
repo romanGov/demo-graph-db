@@ -1,11 +1,13 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
+import java.util.*
 
 plugins {
     id("org.springframework.boot")
     id("io.spring.dependency-management")
     kotlin("jvm")
     kotlin("plugin.spring")
+    id("org.flywaydb.flyway") version "9.8.1"
 }
 java.sourceCompatibility = JavaVersion.VERSION_11
 group = "com.otus"
@@ -16,7 +18,7 @@ repositories {
     mavenLocal()
     maven { url = uri("https://repo.spring.io/milestone") }
     maven { url = uri("https://repo.spring.io/snapshot") }
-    maven { url = uri("https://repo1.maven.org/maven2") }
+    maven { url = uri("https://repo1.maven.org/maven2/") }
 }
 tasks.withType<BootJar> {
     manifest {
@@ -35,7 +37,7 @@ dependencies {
     val arcadeDbVersion: String by project
     val testContainersVersion: String by project
     val postgresDriverVersion: String by project
-
+    implementation("org.flywaydb:flyway-core:9.8.1")
     //database
     implementation("com.arcadedb:arcadedb-engine:$arcadeDbVersion")
     implementation("com.arcadedb:arcadedb-network:$arcadeDbVersion")
@@ -75,4 +77,17 @@ tasks.withType<KotlinCompile> {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "11"
     }
+}
+val appProperties = File(rootDir, "/demo-rabbit/src/main/resources/application.properties").inputStream().use {
+    Properties().apply { load(it) }
+}
+flyway {
+    url = appProperties["spring.datasource.url"] as String
+    user = appProperties["spring.datasource.username"] as String
+    password = appProperties["spring.datasource.password"] as String
+    baselineOnMigrate = true
+    schemas = arrayOf("demo_graph")
+    createSchemas = true
+    locations = arrayOf("filesystem:src/main/resources/db/migration")
+    outOfOrder = true
 }
