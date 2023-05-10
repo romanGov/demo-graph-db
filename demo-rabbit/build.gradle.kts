@@ -37,7 +37,7 @@ dependencies {
     val arcadeDbVersion: String by project
     val testContainersVersion: String by project
     val postgresDriverVersion: String by project
-    implementation("org.flywaydb:flyway-core:9.8.1")
+    implementation("org.flywaydb:flyway-core:9.16.0")
     //database
     implementation("com.arcadedb:arcadedb-engine:$arcadeDbVersion")
     implementation("com.arcadedb:arcadedb-network:$arcadeDbVersion")
