@@ -6,7 +6,7 @@ echo "----------------"
 
 docker container stop arcade-db
 docker container stop graph-db-demo-postgres
-docker container stop rabbitmq
+docker container stop rabbitmq-demo-graph-db
 
 echo "=========================="
 echo "remove old images"
@@ -14,7 +14,7 @@ echo "----------------"
 
 docker container rm arcade-db
 docker container rm graph-db-demo-postgres
-docker container rm rabbitmq
+docker container rm rabbitmq-demo-graph-db
 
 echo "=========================="
 echo "Creating containers"
@@ -34,10 +34,10 @@ docker run --name graph-db-demo-postgres   \
              -e POSTGRES_DB=demo_graph -p 7450:5432 \
              -d postgres
 
-docker run --name rabbitmq  \
+docker run --name rabbitmq-demo-graph-db  \
              -e RABBITMQ_DEFAULT_USER=rabbitmq     \
              -e RABBITMQ_DEFAULT_PASS=rabbitmq    \
-             -e RABBITMQ_DEFAULT_VHOST='/' -p 5670:5672 -p 15672:15672\
+             -e RABBITMQ_DEFAULT_VHOST='/' -p 5670:5672 -p 15670:15672\
              -d rabbitmq:3.8-management
 
 
