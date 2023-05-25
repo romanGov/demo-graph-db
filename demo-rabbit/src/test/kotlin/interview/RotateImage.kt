@@ -14,6 +14,32 @@ fun main(){
         println(item.joinToString { "$it" })
     }
 }
+
+fun rotate(matrix: Array<IntArray>): Unit {
+
+    val n = matrix.size
+    for (layer in 0 until n / 2) {
+        val first = layer
+        val last = n - 1 - layer
+        for (i in first until last) {
+            val offset = i - first
+            val top = matrix[first][i] // Save top element
+            println("top -> $top")
+            // Left -> Top
+            matrix[first][i] = matrix[last - offset][first]
+            println("matrix first i -> ${matrix[first][i]}")
+            // Bottom -> Left
+            matrix[last - offset][first] = matrix[last][last - offset]
+
+            // Right -> Bottom
+            matrix[last][last - offset] = matrix[i][last]
+
+            // Top -> Right
+            matrix[i][last] = top
+        }
+    }
+}
+
 fun createThirdMatrix(): Array<IntArray> {
     val elements1 = IntArray(3)
     elements1[0]=1
@@ -46,29 +72,9 @@ fun createFourthMatrix(): Array<IntArray> {
     elements3[2]=11
     elements3[3]=12
     val elements4 = IntArray(4)
-    elements3[0]=13
-    elements3[1]=14
-    elements3[2]=15
-    elements3[3]=16
+    elements4[0]=13
+    elements4[1]=14
+    elements4[2]=15
+    elements4[3]=16
     return arrayOf(elements1, elements2, elements3,elements4)
 }
-fun rotate(matrix: Array<IntArray>): Unit {
-
-    val iterations = matrix.size-1
-    for(i in 0 until iterations-1){
-        println("iteration -> $i")
-        val array = matrix[i]
-        for(j in 0 until iterations-i){
-            println("currentItem -> ${array[j]}")
-            val firstElem = array[j]
-            val secondElem = matrix[i+j][iterations]
-            val thirdElem = matrix[iterations][iterations - j]
-            val fourthElem = matrix[iterations-j][i]
-            array[j] = fourthElem
-            matrix[i+j][iterations] = firstElem
-            matrix[iterations][iterations - j] = secondElem
-            matrix[iterations-j][i] = thirdElem
-        }
-    }
-}
-
