@@ -9,13 +9,14 @@ plugins {
     kotlin("plugin.spring")
     id("org.flywaydb.flyway") version "9.8.1"
 }
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_17
 group = "com.otus"
 version = "1.0"
 
 repositories {
     mavenCentral()
     mavenLocal()
+    google()
     maven { url = uri("https://repo.spring.io/milestone") }
     maven { url = uri("https://repo.spring.io/snapshot") }
     maven { url = uri("https://repo1.maven.org/maven2/") }
@@ -37,8 +38,14 @@ dependencies {
     val arcadeDbVersion: String by project
     val testContainersVersion: String by project
     val postgresDriverVersion: String by project
+    val tinkerpopVersion: String by project
+
+    implementation("com.google.code.gson:gson:2.10.1")
+
     implementation("org.flywaydb:flyway-core:9.16.0")
     //database
+    implementation("org.apache.tinkerpop:gremlin-driver:$tinkerpopVersion")
+    implementation("com.arcadedb:arcadedb-gremlin:$arcadeDbVersion")
     implementation("com.arcadedb:arcadedb-engine:$arcadeDbVersion")
     implementation("com.arcadedb:arcadedb-network:$arcadeDbVersion")
     implementation("org.postgresql:postgresql:$postgresDriverVersion")

@@ -24,7 +24,8 @@ echo "----------------"
 docker run --name arcade-db \
             --rm -p 2480:2480 -p 2424:2424 -p 8182:8182 -p 6379:6379 -p 5432:5432 \
            -e JAVA_OPTS="-Darcadedb.server.rootPassword=playwithdata
-                         -Darcadedb.server.defaultDatabases=demo_graph[root:playwithdata]"\
+                         -Darcadedb.server.plugins=GremlinServer:com.arcadedb.server.gremlin.GremlinServerPlugin
+                         -Darcadedb.server.defaultDatabases=graph[root:playwithdata]"\
            -d arcadedata/arcadedb:latest
 
 

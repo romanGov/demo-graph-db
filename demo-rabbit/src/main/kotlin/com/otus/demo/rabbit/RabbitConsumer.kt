@@ -1,13 +1,11 @@
 package com.otus.demo.rabbit
 
 
-import com.sun.org.slf4j.internal.LoggerFactory
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.amqp.core.Message
 import org.springframework.amqp.rabbit.annotation.RabbitListener
 import org.springframework.stereotype.Component
-import java.util.logging.Logger
 
 @Component
 class RabbitConsumer {

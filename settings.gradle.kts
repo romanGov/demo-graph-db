@@ -6,6 +6,7 @@ pluginManagement {
         val springframeworkBootVersion: String by settings
         val springDependencyManagementVersion: String by settings
         kotlin("jvm") version kotlinVersion apply false
+        kotlin("plugin.serialization") version kotlinVersion
         kotlin("plugin.spring") version kotlinVersion apply false
         id("org.springframework.boot") version springframeworkBootVersion apply false
         id("io.spring.dependency-management") version springDependencyManagementVersion apply false
@@ -27,7 +28,6 @@ buildscript {
     }
 
     dependencies {
-
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 }

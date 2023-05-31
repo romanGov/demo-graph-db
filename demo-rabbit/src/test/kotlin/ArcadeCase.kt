@@ -2,7 +2,6 @@ import com.arcadedb.remote.RemoteDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
-import org.junit.Ignore
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -18,7 +17,7 @@ class ArcadeCase {
 
     @BeforeEach
     fun generateSchema() {
-        db = RemoteDatabase("localhost", 2480, "demo_graph", "root", "playwithdata")
+        db = RemoteDatabase("localhost", 2480, "graph", "root", "playwithdata")
 
         db.begin()
         val schema = readFileAsTextUsingInputStream("arcade/init_schema.sql")
