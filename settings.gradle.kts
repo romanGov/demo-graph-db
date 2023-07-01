@@ -1,4 +1,4 @@
-rootProject.name = "demo-graph-db"
+rootProject.name = "demo_otus"
 
 pluginManagement {
     plugins {
