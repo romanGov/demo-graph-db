@@ -49,6 +49,7 @@ dependencies {
     implementation("com.arcadedb:arcadedb-engine:$arcadeDbVersion")
     implementation("com.arcadedb:arcadedb-network:$arcadeDbVersion")
     implementation("org.postgresql:postgresql:$postgresDriverVersion")
+
     //spring
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-actuator")

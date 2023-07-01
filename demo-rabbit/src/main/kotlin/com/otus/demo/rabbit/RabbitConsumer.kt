@@ -12,26 +12,26 @@ class RabbitConsumer {
     var logger: Logger = LoggerFactory.getLogger(this::class.java.name)
     @RabbitListener(queues = ["\${demo.queue}"])
     fun createQueueListenerOne(message: String) {
-        logger.info("queue listener one Incoming message: $message")
+        println("queue listener one Incoming message: $message")
     }
     @RabbitListener(queues = ["\${demo.queue}"])
     fun createListenerTwo(message: String) {
-        logger.info("queue listener two Incoming message: $message")
+        println("queue listener two Incoming message: $message")
     }
 
     @RabbitListener(queues = ["\${demo.fanout.one}"])
     fun fanoutListenerOne(message: String) {
-        logger.info("fanout listener one Incoming message: $message")
+        println("fanout listener one Incoming message: $message")
     }
     @RabbitListener(queues = ["\${demo.fanout.two}"])
     fun fanoutListenerTwo(message: String) {
-        logger.info("fanout listener two Incoming message: $message")
+        println("fanout listener two Incoming message: $message")
     }
 
     @RabbitListener(queues = ["\${demo.rpc}"])
     fun rpcListener(message: Message): String {
-        logger.info("rpc listener  Incoming message: $message")
-        logger.info("correlationId: ${message.messageProperties.correlationId}")
+        println("rpc listener  Incoming message: $message")
+        println("correlationId: ${message.messageProperties.correlationId}")
         return "message received ${String(message.body)}"
     }
 }
