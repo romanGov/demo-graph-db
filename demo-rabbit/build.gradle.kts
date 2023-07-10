@@ -9,7 +9,7 @@ plugins {
     kotlin("plugin.spring")
     id("org.flywaydb.flyway") version "9.8.1"
 }
-java.sourceCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_11
 group = "com.otus"
 version = "1.0"
 
