@@ -1,7 +1,7 @@
 --who pays for more than one position
 select c.first_name, c.customer_id, count(pf.customer_id) as customer_count
-from graph.customer c
-         join graph.pays_for pf on c.customer_id = pf.customer_id
+from demo_graph.customer c
+         join demo_graph.pays_for pf on c.customer_id = pf.customer_id
 group by c.customer_id, pf.service_id
 having count(pf.customer_id)>1
 order by c.first_name;
